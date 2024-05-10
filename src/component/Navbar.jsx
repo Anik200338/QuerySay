@@ -42,7 +42,7 @@ const Navbar = () => {
           }
         >
           {' '}
-          All Items
+          Queries
         </NavLink>
       </li>
 
@@ -57,7 +57,24 @@ const Navbar = () => {
             }
           >
             {' '}
-            Add Item
+            Recommendations For Me
+          </NavLink>
+        </li>
+      ) : (
+        <></>
+      )}
+      {user ? (
+        <li>
+          <NavLink
+            to="/myQueries"
+            className={({ isActive }) =>
+              isActive
+                ? 'font-semibold text-lg  border-2  border-blue-200 rounded-xl'
+                : ' text-lg'
+            }
+          >
+            {' '}
+            MyQueries
           </NavLink>
         </li>
       ) : (
@@ -74,7 +91,7 @@ const Navbar = () => {
             }
           >
             {' '}
-            My List
+            Myrecommendations
           </NavLink>
         </li>
       ) : (
@@ -83,7 +100,7 @@ const Navbar = () => {
     </>
   );
   return (
-    <div className="navbar bg-base-100 shadow-lg px-4 fixed rounded-b-3xl z-10">
+    <div className="navbar bg-base-100 shadow-lg px-4 fixed rounded-b-3xl z-10 ">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -124,7 +141,7 @@ const Navbar = () => {
           className="btn btn-ghost text-xl lg:text-2xl font-bold text-[#1CB5E0]"
         >
           {' '}
-          Craft Haven
+          QuerySavvy
         </Link>
       </div>
       <div className="navbar-center hidden lg:flex">

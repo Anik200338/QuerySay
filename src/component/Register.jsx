@@ -6,6 +6,7 @@ import toast, { Toaster } from 'react-hot-toast';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 
 import { AuthContext } from '../Provider/AuthProvider';
+import axios from 'axios';
 const Register = () => {
   const { createUser, updateUserProfile } = useContext(AuthContext);
   const {
@@ -20,33 +21,56 @@ const Register = () => {
 
   const from = location?.state || '/';
 
-  const onSubmit = data => {
-    // Password verification
-    const uppercaseRegex = /[A-Z]/;
-    const lowercaseRegex = /[a-z]/;
-    if (!uppercaseRegex.test(data.password)) {
-      toast.error('Password must contain at least one uppercase letter');
-      return;
+  const onSubmit = async data => {
+    try {
+      // Password verification
+      const uppercaseRegex = /[A-Z]/;
+      const lowercaseRegex = /[a-z]/;
+      if (!uppercaseRegex.test(data.password)) {
+        toast.error('Password must contain at least one uppercase letter');
+        return;
+      }
+      if (!lowercaseRegex.test(data.password)) {
+        toast.error('Password must contain at least one lowercase letter');
+        return;
+      }
+      if (data.password.length < 6) {
+        toast.error('Password must be at least 6 characters long');
+        return;
+      }
+
+      // Create user
+      const result = await createUser(
+        data.email,
+        data.password,
+        data.Photo,
+        data.fullname
+      );
+
+      // Send data to server and get JWT
+      const jwtResponse = await axios.post(
+        'http://localhost:5000/jwt',
+        {
+          email: result?.user?.email,
+        },
+        { withCredentials: true }
+      );
+
+      // Log JWT data
+      console.log(jwtResponse.data);
+
+      // Update user profile
+      await updateUserProfile(data.fullname, data.Photo);
+
+      // Display success message and navigate
+      toast.success('Registration successful! You have been logged in.');
+      navigate(from);
+    } catch (error) {
+      // Display error message from Firebase or any other backend
+      toast.error(error.message || 'An error occurred during registration.');
     }
-    if (!lowercaseRegex.test(data.password)) {
-      toast.error('Password must contain at least one lowercase letter');
-      return;
-    }
-    if (data.password.length < 6) {
-      toast.error('Password must be at least 6 characters long');
-      return;
-    }
-    createUser(data.email, data.password, data.Photo, data.fullname)
-      .then(() => {
-        updateUserProfile(data.fullname, data.Photo).then(() => {
-          toast.success('Registration successful! You have been logged in.');
-          navigate(from);
-        });
-      })
-      .catch(error => {
-        toast.error(error.message); // Display error message from Firebase or any other backend
-      });
   };
+
   return (
     <div className="pt-24">
       <div className="hero min-h-screen bg-[url('https://i.ibb.co/b60WJLZ/data-security-threat-1.png')] rounded-3xl  w-full mb-20">

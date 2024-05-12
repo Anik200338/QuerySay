@@ -34,7 +34,7 @@ const Navbar = () => {
       </li>
       <li>
         <NavLink
-          to="/allCraft"
+          to="/allQueries"
           className={({ isActive }) =>
             isActive
               ? 'font-semibold text-lg  border-2 border-blue-200   rounded-xl'
@@ -49,7 +49,7 @@ const Navbar = () => {
       {user ? (
         <li>
           <NavLink
-            to="/addCraft"
+            to="/Forme"
             className={({ isActive }) =>
               isActive
                 ? 'font-semibold text-lg border-2  border-blue-200  rounded-xl'
@@ -83,7 +83,7 @@ const Navbar = () => {
       {user ? (
         <li>
           <NavLink
-            to="/myArt"
+            to="/myreccomendetion"
             className={({ isActive }) =>
               isActive
                 ? 'font-semibold text-lg  border-2  border-blue-200 rounded-xl'

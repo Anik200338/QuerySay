@@ -9,6 +9,7 @@ import { FaEye, FaEyeSlash } from 'react-icons/fa';
 
 import { AuthContext } from '../Provider/AuthProvider';
 import SocialLogin from './SocialLogin';
+import axios from 'axios';
 
 const Login = () => {
   const { signIn } = useContext(AuthContext);
@@ -24,17 +25,26 @@ const Login = () => {
   const from = location?.state || '/';
   const [showPassword, setShowPassword] = useState(false);
 
-  const onSubmit = data => {
-    signIn(data.email, data.password)
-      .then(result => {
-        if (result.user) {
-          toast.success('Login successful!');
-          navigate(from);
-        }
-      })
-      .catch(error => {
-        toast.error('Invalid email or password. Please try again.'); // Display error message
-      });
+  const onSubmit = async data => {
+    const result = await signIn(data.email, data.password);
+    try {
+      const { data } = await axios.post(
+        'http://localhost:5000/jwt',
+        {
+          email: result?.user?.email,
+        },
+        { withCredentials: true }
+      );
+      console.log(data);
+      if (result.user) {
+        toast.success('Login successful!');
+        navigate(from);
+      } else {
+        toast.error('Social login failed. Please try again.'); // Display error message
+      }
+    } catch (error) {
+      toast.error('Invalid email or password. Please try again.'); // Display error message
+    }
   };
 
   return (

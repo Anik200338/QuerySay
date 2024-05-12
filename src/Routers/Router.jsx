@@ -6,6 +6,11 @@ import Register from '../component/Register';
 import Erropage from '../component/Erropage/Erropage';
 import MyQueries from '../Pages/MyQueries';
 import AddQueries from '../component/AddQueries/AddQueries';
+import Update from '../Pages/Update';
+import QueriesDetails from '../Pages/QueriesDetails';
+import AllQueries from '../Pages/AllQueries';
+import MyRecommmendation from '../Pages/MyRecommmendation';
+import ForME from '../Pages/ForME';
 
 const router = createBrowserRouter([
   {
@@ -39,6 +44,26 @@ const router = createBrowserRouter([
       {
         path: '/register',
         element: <Register></Register>,
+      },
+      {
+        path: '/Update/:id',
+        element: <Update></Update>,
+      },
+      {
+        path: '/craft/:id',
+        element: <QueriesDetails></QueriesDetails>,
+      },
+      {
+        path: '/allQueries',
+        element: <AllQueries></AllQueries>,
+      },
+      {
+        path: '/myreccomendetion',
+        element: <MyRecommmendation></MyRecommmendation>,
+      },
+      {
+        path: '/Forme',
+        element: <ForME></ForME>,
       },
     ],
   },

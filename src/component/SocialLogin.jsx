@@ -5,6 +5,7 @@ import { useContext } from 'react';
 
 import { useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../Provider/AuthProvider';
+import axios from 'axios';
 
 const SocialLogin = () => {
   const { googleLogin, githubLogin } = useContext(AuthContext);
@@ -14,19 +15,26 @@ const SocialLogin = () => {
 
   const from = location?.state || '/';
 
-  const handleSocialLogin = socialProvider => {
-    socialProvider()
-      .then(result => {
-        if (result.user) {
-          toast.success('Login successful!');
-          navigate(from);
-        } else {
-          toast.error('Social login failed. Please try again.'); // Display error message
-        }
-      })
-      .catch(error => {
-        toast.error('An error occurred during social login.'); // Display error message
-      });
+  const handleSocialLogin = async socialProvider => {
+    try {
+      const result = await socialProvider();
+      const { data } = await axios.post(
+        'http://localhost:5000/jwt',
+        {
+          email: result?.user?.email,
+        },
+        { withCredentials: true }
+      );
+      console.log(data);
+      if (result.user) {
+        toast.success('Login successful!');
+        navigate(from);
+      } else {
+        toast.error('Social login failed. Please try again.'); // Display error message
+      }
+    } catch (error) {
+      toast.error('An error occurred during social login.'); // Display error message
+    }
   };
   return (
     <>

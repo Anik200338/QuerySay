@@ -1,11 +1,22 @@
-import React, { useContext } from 'react';
-import { AuthContext } from '../../Provider/AuthProvider';
+import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 import Swal from 'sweetalert2';
-import { Link } from 'react-router-dom';
 
-const AddQueries = () => {
-  const { user } = useContext(AuthContext);
-  const handleAddQuery = event => {
+const Update = () => {
+  const { id } = useParams();
+  console.log(id);
+  const [craft, setCraft] = useState({});
+
+  useEffect(() => {
+    fetch(`http://localhost:5000/UpdateDetails/${id}`)
+      .then(res => res.json())
+      .then(data => {
+        setCraft(data);
+        console.log(data);
+      });
+  }, [id]);
+  // ?dsad
+  const handleUpdate = () => {
     event.preventDefault();
     const form = event.target;
     const ProductName = form.ProductName.value;
@@ -13,40 +24,29 @@ const AddQueries = () => {
     const ProductImage = form.ProductImage.value;
     const QueryTItle = form.QueryTItle.value;
     const BoycottingReasonDetails = form.BoycottingReasonDetails.value;
-    const email = user.email;
-    const Name = user.displayName;
-    const userimage = user.photoURL;
-    const currentDateAndTime = new Date().toLocaleString();
-    const recommendationCount = 0;
-
-    const newQuery = {
+    const UpdateCraft = {
       ProductName,
       ProductBrand,
       ProductImage,
       QueryTItle,
       BoycottingReasonDetails,
-      email,
-      Name,
-      userimage,
-      currentDateAndTime,
-      recommendationCount,
     };
-    console.log(newQuery);
-    // send data to the server
-    fetch('http://localhost:5000/AddQuery', {
-      method: 'POST',
+    fetch(`http://localhost:5000/update/${id}`, {
+      method: 'PUT',
       headers: {
         'content-type': 'application/json',
       },
-      body: JSON.stringify(newQuery),
+      body: JSON.stringify(UpdateCraft),
     })
       .then(res => res.json())
       .then(data => {
+        setCraft(data);
+        // Set loading to false when data is fetched
         console.log(data);
-        if (data.insertedId) {
+        if (data.modifiedCount > 0) {
           Swal.fire({
-            title: 'success!',
-            text: 'Added successfully',
+            title: 'Success!',
+            text: 'Updated Successfully',
             icon: 'success',
             confirmButtonText: 'Cool',
           });
@@ -57,7 +57,7 @@ const AddQueries = () => {
   return (
     <div className="bg-info rounded-2xl p-5 lg:p-20 lg:m-20">
       <h2 className="text-3xl font-extrabold text-center mb-5">Add Query</h2>
-      <form onSubmit={handleAddQuery}>
+      <form onSubmit={handleUpdate}>
         {/* form name and quantity row */}
         <div className="md:flex mb-8">
           <div className="form-control md:w-1/2">
@@ -70,6 +70,7 @@ const AddQueries = () => {
                 name="ProductName"
                 placeholder="ProductName"
                 className="input input-bordered w-full"
+                defaultValue={craft.ProductName}
               />
             </label>
           </div>
@@ -83,6 +84,7 @@ const AddQueries = () => {
                 name="ProductBrand"
                 placeholder="ProductBrand"
                 className="input input-bordered w-full"
+                defaultValue={craft.ProductBrand}
               />
             </label>
           </div>
@@ -99,6 +101,7 @@ const AddQueries = () => {
                 name="ProductImage"
                 placeholder="ProductImage-URL"
                 className="input input-bordered w-full"
+                defaultValue={craft.ProductImage}
               />
             </label>
           </div>
@@ -112,6 +115,7 @@ const AddQueries = () => {
                 name="QueryTItle"
                 placeholder="Query TItle"
                 className="input input-bordered w-full"
+                defaultValue={craft.QueryTItle}
               />
             </label>
           </div>
@@ -130,14 +134,15 @@ const AddQueries = () => {
                 name="BoycottingReasonDetails"
                 placeholder="Boycotting Reason Details"
                 className="input input-bordered w-full"
+                defaultValue={craft.BoycottingReasonDetails}
               />
             </label>
           </div>
         </div>
-        <input type="submit" value="Add Query" className="btn btn-block" />
+        <input type="submit" value="Update Query" className="btn btn-block" />
       </form>
     </div>
   );
 };
 
-export default AddQueries;
+export default Update;

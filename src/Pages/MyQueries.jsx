@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+import MyCardQueries from '../component/Myqueries/MyQueries';
+
 const MyQueries = () => {
   return (
     <>
@@ -19,11 +21,14 @@ const MyQueries = () => {
                 repudiandae et a id nisi.
               </p>
               <Link to="/AddQueries">
-                <button className="btn btn-primary">Get Started</button>
+                <button className="btn btn-primary">Add Queries</button>
               </Link>
             </div>
           </div>
         </div>
+      </div>
+      <div>
+        <MyCardQueries></MyCardQueries>
       </div>
     </>
   );

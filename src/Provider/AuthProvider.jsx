@@ -11,6 +11,7 @@ import {
   updateProfile,
 } from 'firebase/auth';
 import app from '../Firebase/Firebaseconfig';
+import axios from 'axios';
 
 export const AuthContext = createContext(null);
 
@@ -64,7 +65,11 @@ const AuthProviders = ({ children }) => {
     return signInWithPopup(auth, githubProvider);
   };
 
-  const logout = () => {
+  const logout = async () => {
+    const { data } = await axios('http://localhost:5000/logout', {
+      withCredentials: true,
+    });
+    console.log(data);
     setUser(null);
     return signOut(auth);
   };

@@ -5,6 +5,7 @@ const ForMeCard = ({ Queries, handleDelete }) => {
   const {
     ProductName,
     _id,
+    id,
     currentDateAndTime,
     ProductBrand,
 
@@ -33,7 +34,7 @@ const ForMeCard = ({ Queries, handleDelete }) => {
           <button onClick={() => handleDelete(_id)} className="btn btn-error">
             Delete
           </button>
-          <Link to={`/craft/${_id}`}>
+          <Link to={`/craft/${id}`}>
             <button className="btn btn-accent">View Details</button>
           </Link>
         </div>

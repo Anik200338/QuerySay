@@ -44,20 +44,27 @@ const MyRecommmendation = () => {
   };
 
   return (
-    <div>
-      {/* Render filtered items */}
-      <div
-        className="grid grid-cols-1 lg:grid-cols-3 gap-10 mb-20 lg:p-20"
-        data-aos="fade-down-right"
-      >
-        {items.map(Queries => (
+    <div className="overflow-x-auto mb-10">
+      <table className="table">
+        {/* head */}
+        <thead>
+          <tr>
+            <th>Recommendation Title</th>
+            <th>Recommendedproduct Name</th>
+            <th>Date&Time</th>
+            <th>Query Owner Name</th>
+            <th>Delete Recommendation</th>
+          </tr>
+        </thead>
+        {items.map((Queries, index) => (
           <MyRecommendedCard
             key={Queries.id}
             Queries={Queries}
+            index={index}
             handleDelete={handleDelete}
           />
         ))}
-      </div>
+      </table>
     </div>
   );
 };

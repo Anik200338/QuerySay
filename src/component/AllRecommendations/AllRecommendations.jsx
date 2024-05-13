@@ -1,20 +1,38 @@
 import React from 'react';
 
 const AllRecommendations = ({ recommended }) => {
-  const { RecommendationTitle, RecommendedproductName } = recommended;
+  const {
+    RecommendationTitle,
+    RecommendedproductName,
+    RecommendedProductImage,
+    Recommendationreason,
+    currentDateAndTime,
+    User,
+  } = recommended;
+
   return (
     <div>
       <div className="chat chat-start">
         <div className="chat-image avatar">
-          <div className="w-10 rounded-full">
-            <img
-              alt="Tailwind CSS chat bubble component"
-              src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"
-            />
+          <div className="w-16 rounded-full">
+            <img alt="Tailwind CSS chat bubble component" src={User.photo} />
           </div>
         </div>
-        <div className="chat-bubble">
-          It was said that you would, destroy the Sith, not join them.
+        <div className="chat-bubble  chat-bubble-primary">
+          <div className="hero-content flex-col lg:flex-row">
+            <img
+              src={RecommendedProductImage}
+              className="max-w-sm rounded-lg shadow-2xl"
+            />
+            <div>
+              <h1 className="text-xl font-bold">{User.Name}</h1>
+              <p className="">{User.email}</p>
+              <p className="">{currentDateAndTime}</p>
+              <h1 className="text-3xl font-bold pt-6">{RecommendationTitle}</h1>
+              <h1 className="text-xl font-bold">{RecommendedproductName}</h1>
+              <p className="">{Recommendationreason}</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>

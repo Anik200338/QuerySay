@@ -106,10 +106,7 @@ const QueriesDetails = () => {
           <div className="text-center lg:text-left">
             <div className="card lg:h-80 lg:card-side bg-base-100 shadow-xl">
               <figure className="">
-                <img
-                  src="https://img.daisyui.com/images/stock/photo-1494232410401-ad00d5433cfa.jpg"
-                  alt="Album"
-                />
+                <img src={ProductImage} alt="Album" />
               </figure>
               <div className="card-body text-start">
                 <h2 className="card-title">{QueryTItle}</h2>
@@ -117,7 +114,9 @@ const QueriesDetails = () => {
                 <p>{ProductBrand}</p>
                 <p>{BoycottingReasonDetails}</p>
                 <p>{currentDateAndTime}</p>
-                <p>{recommendationCount}</p>
+                <p className="font-bold text-primary text-lg">
+                  {recommendationCount}
+                </p>
                 <div className="flex items-center gap-5">
                   <div className="avatar  gap-5 items-center ">
                     <div className="w-16 rounded-full ">
@@ -132,7 +131,10 @@ const QueriesDetails = () => {
               </div>
             </div>
           </div>
-          <div className="card shrink-0 max-w-sm lg:max-w-2xl shadow-2xl bg-base-100">
+          <div className="card bg-gradient-to-r from-[#00C9FF] to-[#92FE9D] shrink-0 max-w-sm lg:max-w-2xl shadow-2xl bg-base-100">
+            <div className="text-center text-xl mt-3 font-bold">
+              Add Recommendation
+            </div>
             <form onSubmit={handleAddRecommendation} className="card-body">
               <div className="lg:flex gap-5">
                 <div className="form-control">

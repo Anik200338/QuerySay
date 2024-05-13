@@ -55,7 +55,7 @@ const AddQueries = () => {
     form.reset();
   };
   return (
-    <div className="bg-info rounded-2xl p-5 lg:p-20 lg:m-20">
+    <div className="bg-gradient-to-r from-[#00C9FF] to-[#92FE9D] rounded-2xl p-5 lg:p-20 lg:m-20">
       <h2 className="text-3xl font-extrabold text-center mb-5">Add Query</h2>
       <form onSubmit={handleAddQuery}>
         {/* form name and quantity row */}

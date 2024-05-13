@@ -8,6 +8,8 @@ const MyQueries = () => {
   const [items, setItems] = useState([]);
 
   const [control, setcontrol] = useState(false);
+  const [loading, setLoading] = useState(true); // State to manage loading state
+  const [error, setError] = useState(null); // State to manage errors
 
   useEffect(() => {
     if (user?.email)
@@ -21,6 +23,11 @@ const MyQueries = () => {
           //   (a, b) => new Date(b.data.timestamp) - new Date(b.data.timestamp)
           // );
           setItems(data);
+          setLoading(false);
+        })
+        .catch(err => {
+          setError(err); // Set error if fetch fails
+          setLoading(false); // Set loading to false after fetch fails
         });
   }, [user?.email, control]);
 
@@ -48,12 +55,32 @@ const MyQueries = () => {
       }
     });
   };
+
+  if (loading)
+    return (
+      <div className="flex justify-center mt-5">
+        <div className="flex flex-col  gap-4 w-52">
+          <div className="skeleton h-32 w-full"></div>
+          <div className="skeleton h-4 w-28"></div>
+          <div className="skeleton h-4 w-full"></div>
+          <div className="skeleton h-4 w-full"></div>
+        </div>
+      </div>
+    ); // Show loading message if data is being fetched
+  if (error) return <div>Error: {error.message}</div>; // Show error message if fetch fails
+  if (items.length === 0)
+    return (
+      <div className="flex justify-center mt-5 font-bold text-5xl">
+        No queries found.
+      </div>
+    ); // Show message if no queries found
+
   return (
     <div>
       {/* Render filtered items */}
       <div
         className="grid grid-cols-1 lg:grid-cols-3 gap-10 mb-20 lg:p-20"
-        data-aos="fade-down-right"
+        // data-aos="fade-down-right"
       >
         {items.map(Queries => (
           <AllMyQueries

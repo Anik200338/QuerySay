@@ -32,7 +32,7 @@ const Slider = () => {
         {fakeData.map(house => (
           <SwiperSlide house={house} key={house.id}>
             <div
-              className="hero min-h-80 lg:h-[600px]   "
+              className="hero min-h-80 h-[500px] lg:h-[600px]   "
               style={{
                 backgroundImage: `url(${house.image})`,
                 backgroundSize: 'cover',
@@ -60,11 +60,10 @@ const Slider = () => {
                   </h1>
                   <Fade direction="left">
                     <p className="mb-5 text-xl text-black">
-                      Unravel the World of Alternatives: Explore our platform to
-                      discover a diverse array of products and solutions
-                      tailored to your needs. From innovative gadgets to unique
-                      creations, embark on a journey of exploration and find the
-                      perfect alternative for you.
+                      Discover Your Perfect Match: Explore a World of
+                      Alternatives! From innovative gadgets to unique solutions,
+                      find the perfect fit for your needs. Start your
+                      exploration journey now!
                     </p>
                   </Fade>
                 </div>

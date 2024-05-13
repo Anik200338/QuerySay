@@ -53,7 +53,7 @@ const Login = () => {
 
   return (
     <div className="pt-24">
-      <div className="hero min-h-screen bg-[url('https://i.ibb.co/wzLs0gK/data-security-threat.png')] rounded-3xl  w-full mb-20">
+      <div className="hero min-h-screen bg-[url('https://i.ibb.co/3zNtX58/onboarding-state-feedback-1.png')] rounded-3xl  w-full mb-20">
         <div className="hero-content flex-col lg:flex rounded-2xl w-3/4">
           <div
             className="card shrink-0 w-full max-w-sm shadow-2xl bg-transparent border-2 border-blue-200 rounded-none"

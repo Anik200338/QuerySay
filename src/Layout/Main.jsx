@@ -6,7 +6,7 @@ import Footer from '../component/Footer';
 const Main = () => {
   return (
     <>
-      <div className="h-16">
+      <div className="h-16  ">
         <Navbar></Navbar>
       </div>
       <div className="min-h-[calc(100vh-235px)] container mx-auto p-5 ">

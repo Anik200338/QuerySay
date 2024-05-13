@@ -2,7 +2,7 @@
   margin-top: 20px;
   width: 100%;
   height: 100%;
-  border-radius: 50px;
+  border-radius: 10px;
 }
 
 .swiper-slide {
@@ -14,7 +14,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 50px;
+  border-radius: 10px;
 }
 
 .swiper-slide img {
@@ -22,5 +22,5 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: 50px;
+  border-radius: 10px;
 }

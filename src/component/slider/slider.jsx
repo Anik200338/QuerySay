@@ -19,7 +19,7 @@ const Slider = () => {
         spaceBetween={30}
         centeredSlides={true}
         autoplay={{
-          delay: 2500,
+          delay: 3500,
           disableOnInteraction: false,
         }}
         pagination={{
@@ -32,31 +32,26 @@ const Slider = () => {
         {fakeData.map(house => (
           <SwiperSlide house={house} key={house.id}>
             <div
-              className="hero min-h-80 lg:h-[600px]  rounded-3xl "
+              className="hero min-h-80 lg:h-[600px]   "
               style={{
                 backgroundImage: `url(${house.image})`,
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',
               }}
             >
-              <div className="hero-overlay bg-opacity-30 rounded-3xl"></div>
+              <div className="hero-overlay bg-opacity-30 "></div>
               <div className="hero-content text-center  text-neutral-content">
                 <div className="max-w-md ">
                   <h1 className="mb-5 text-4xl font-bold">
                     <span className="text-info">
-                      Discover{' '}
+                      Welcome to Our Website:{' '}
                       <span>
                         <Typewriter
-                          words={[
-                            'Artistic Masterpieces',
-                            'Artistic Expression',
-                            'Creative Innovation',
-                            'Visual Storytelling',
-                          ]}
+                          words={['Where Every Query Finds Its Answer']}
                           loop={5}
                           cursor
                           cursorStyle="_"
-                          typeSpeed={70}
+                          typeSpeed={80}
                           deleteSpeed={50}
                           delaySpeed={1000}
                         />
@@ -64,12 +59,12 @@ const Slider = () => {
                     </span>
                   </h1>
                   <Fade direction="left">
-                    <p className="mb-5 text-xl">
-                      Immerse yourself in the world of artistry and
-                      craftsmanship with our curated collection. From
-                      intricately designed interiors to meticulously crafted
-                      exteriors, explore unparalleled creativity in every
-                      detail.
+                    <p className="mb-5 text-xl text-black">
+                      Unravel the World of Alternatives: Explore our platform to
+                      discover a diverse array of products and solutions
+                      tailored to your needs. From innovative gadgets to unique
+                      creations, embark on a journey of exploration and find the
+                      perfect alternative for you.
                     </p>
                   </Fade>
                 </div>

@@ -23,7 +23,7 @@ const router = createBrowserRouter([
         element: <Home></Home>,
         loader: async () => {
           // Fetch data from 'fakedata.json'
-          const fakeDataResponse = await fetch('fakedata.json');
+          const fakeDataResponse = await fetch('../../fakedata.json');
           const fakeData = await fakeDataResponse.json();
 
           return { fakeData };

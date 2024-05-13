@@ -1,5 +1,5 @@
 import toast from 'react-hot-toast';
-import { FaGoogle } from 'react-icons/fa';
+import { FcGoogle } from 'react-icons/fc';
 import { FaGithub } from 'react-icons/fa';
 import { useContext } from 'react';
 
@@ -39,18 +39,18 @@ const SocialLogin = () => {
   return (
     <>
       <div className="divider"> continue with</div>
-      <div className="flex justify-center gap-5">
+      <div className="flex  flex-col justify-center gap-5">
         <button
           onClick={() => handleSocialLogin(googleLogin)}
-          className="btn btn-info  rounded-full btn-outline text-lg"
+          className="btn   rounded-full btn-outline text-lg"
         >
-          <FaGoogle />{' '}
+          <FcGoogle className="text-2xl" />{' '}
         </button>
         <button
           onClick={() => handleSocialLogin(githubLogin)}
-          className="btn btn-info  btn-outline rounded-full text-lg"
+          className="btn  btn-outline rounded-full text-lg"
         >
-          <FaGithub />{' '}
+          <FaGithub className="text-2xl" />{' '}
         </button>
       </div>
     </>

@@ -7,6 +7,7 @@ import { FaEye, FaEyeSlash } from 'react-icons/fa';
 
 import { AuthContext } from '../Provider/AuthProvider';
 import axios from 'axios';
+import SocialLogin from './SocialLogin';
 const Register = () => {
   const { createUser, updateUserProfile } = useContext(AuthContext);
   const {
@@ -75,13 +76,15 @@ const Register = () => {
     <div className="pt-24">
       <div className="hero min-h-screen bg-[url('https://i.ibb.co/b60WJLZ/data-security-threat-1.png')] rounded-3xl  w-full mb-20">
         <div className="hero-content flex-col lg:flex w-3/4">
-          <div className="text-center lg:text-left">
-            <h1 className="text-5xl font-bold">Register now!</h1>
-          </div>
           <div
-            className="card shrink-0 w-full max-w-sm shadow-2xl bg-transparent border-2 border-blue-200"
+            className="card shrink-0 w-full max-w-sm shadow-2xl bg-transparent border-2 border-blue-200 rounded-none"
             data-aos="flip-left"
           >
+            <div className="text-center lg:text-left">
+              <h1 className="text-center pt-5 text-5xl font-bold">
+                Register Now
+              </h1>
+            </div>
             <form className="card-body" onSubmit={handleSubmit(onSubmit)}>
               <div className="form-control">
                 <label className="label">
@@ -145,6 +148,9 @@ const Register = () => {
                   Login
                 </Link>{' '}
               </p>
+              <div className="mb-5">
+                <SocialLogin></SocialLogin>
+              </div>
             </form>
           </div>
         </div>

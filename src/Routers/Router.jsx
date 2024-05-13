@@ -26,7 +26,10 @@ const router = createBrowserRouter([
           const fakeDataResponse = await fetch('../../fakedata.json');
           const fakeData = await fakeDataResponse.json();
 
-          return { fakeData };
+          const LatestCard = await fetch('http://localhost:5000/AddRecent');
+          const Recent = await LatestCard.json();
+
+          return { fakeData, Recent };
         },
       },
       {

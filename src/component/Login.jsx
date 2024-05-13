@@ -55,14 +55,17 @@ const Login = () => {
     <div className="pt-24">
       <div className="hero min-h-screen bg-[url('https://i.ibb.co/wzLs0gK/data-security-threat.png')] rounded-3xl  w-full mb-20">
         <div className="hero-content flex-col lg:flex rounded-2xl w-3/4">
-          <div className="text-center  lg:text-left">
-            <h1 className="text-5xl font-bold">Login now!</h1>
-          </div>
           <div
-            className="card shrink-0 w-full max-w-sm shadow-2xl bg-transparent border-2 border-blue-200"
+            className="card shrink-0 w-full max-w-sm shadow-2xl bg-transparent border-2 border-blue-200 rounded-none"
             data-aos="flip-left"
           >
-            <form className="card-body" onSubmit={handleSubmit(onSubmit)}>
+            <form
+              className="card-body shadow-2xl"
+              onSubmit={handleSubmit(onSubmit)}
+            >
+              <div className="lg:text-left">
+                <h1 className="text-5xl text-center  font-bold">Login Now</h1>
+              </div>
               <div className="form-control">
                 <label className="label">
                   <span className="label-text">Email</span>

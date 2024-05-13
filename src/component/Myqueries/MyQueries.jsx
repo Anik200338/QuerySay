@@ -10,18 +10,19 @@ const MyQueries = () => {
   const [control, setcontrol] = useState(false);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/Query/${user?.email}`, {
-      credentials: 'include',
-    })
-      .then(res => res.json())
-      .then(data => {
-        // Sort items by timestamp in descending order
-        // const sortedItems = data.sort(
-        //   (a, b) => new Date(b.data.timestamp) - new Date(b.data.timestamp)
-        // );
-        setItems(data);
-      });
-  }, [user, control]);
+    if (user?.email)
+      fetch(`http://localhost:5000/Query/${user?.email}`, {
+        credentials: 'include',
+      })
+        .then(res => res.json())
+        .then(data => {
+          // Sort items by timestamp in descending order
+          // const sortedItems = data.sort(
+          //   (a, b) => new Date(b.data.timestamp) - new Date(b.data.timestamp)
+          // );
+          setItems(data);
+        });
+  }, [user?.email, control]);
 
   const handleDelete = id => {
     Swal.fire({

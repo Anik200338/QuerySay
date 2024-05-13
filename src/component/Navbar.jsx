@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 
 import Lottie from 'lottie-react';
+import faq from '../../public/faq.json';
 import { AuthContext } from '../Provider/AuthProvider';
 
 const Navbar = () => {
@@ -23,11 +24,7 @@ const Navbar = () => {
       <li>
         <NavLink
           to="/"
-          className={({ isActive }) =>
-            isActive
-              ? 'font-semibold text-lg  border-2 border-blue-200   rounded-xl'
-              : ' text-lg'
-          }
+          className={({ isActive }) => (isActive ? 'font-bold ' : ' ')}
         >
           Home
         </NavLink>
@@ -35,11 +32,7 @@ const Navbar = () => {
       <li>
         <NavLink
           to="/allQueries"
-          className={({ isActive }) =>
-            isActive
-              ? 'font-semibold text-lg  border-2 border-blue-200   rounded-xl'
-              : ' text-lg'
-          }
+          className={({ isActive }) => (isActive ? 'font-bold ' : '')}
         >
           {' '}
           Queries
@@ -50,11 +43,7 @@ const Navbar = () => {
         <li>
           <NavLink
             to="/Forme"
-            className={({ isActive }) =>
-              isActive
-                ? 'font-semibold text-lg border-2  border-blue-200  rounded-xl'
-                : ' text-lg'
-            }
+            className={({ isActive }) => (isActive ? 'font-bold' : '')}
           >
             {' '}
             Recommendations For Me
@@ -67,11 +56,7 @@ const Navbar = () => {
         <li>
           <NavLink
             to="/myQueries"
-            className={({ isActive }) =>
-              isActive
-                ? 'font-semibold text-lg  border-2  border-blue-200 rounded-xl'
-                : ' text-lg'
-            }
+            className={({ isActive }) => (isActive ? 'font-bold ' : ' ')}
           >
             {' '}
             MyQueries
@@ -84,11 +69,7 @@ const Navbar = () => {
         <li>
           <NavLink
             to="/myreccomendetion"
-            className={({ isActive }) =>
-              isActive
-                ? 'font-semibold text-lg  border-2  border-blue-200 rounded-xl'
-                : ' text-lg'
-            }
+            className={({ isActive }) => (isActive ? 'font-bold' : '')}
           >
             {' '}
             Myrecommendations
@@ -100,7 +81,7 @@ const Navbar = () => {
     </>
   );
   return (
-    <div className="navbar bg-base-100 shadow-lg px-4 fixed rounded-b-3xl z-10 ">
+    <div className="navbar bg-base-100 h-2 shadow-2xl px-4 fixed  z-10 ">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -138,10 +119,10 @@ const Navbar = () => {
         </div>
         <Link
           to="/"
-          className="btn btn-ghost text-xl lg:text-2xl font-bold text-[#1CB5E0]"
+          className="btn btn-ghost text-lg lg:text-xl  font-extrabold text-[#1CB5E0]"
         >
           {' '}
-          QuerySavvy
+          <Lottie animationData={faq} className="h-10 " /> QuerySay
         </Link>
       </div>
       <div className="navbar-center hidden lg:flex">

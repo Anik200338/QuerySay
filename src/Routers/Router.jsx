@@ -11,6 +11,7 @@ import QueriesDetails from '../Pages/QueriesDetails';
 import AllQueries from '../Pages/AllQueries';
 import MyRecommmendation from '../Pages/MyRecommmendation';
 import ForME from '../Pages/ForME';
+import PrivateRoute from '../component/Private/PrivateRoute';
 
 const router = createBrowserRouter([
   {
@@ -34,11 +35,19 @@ const router = createBrowserRouter([
       },
       {
         path: '/myQueries',
-        element: <MyQueries></MyQueries>,
+        element: (
+          <PrivateRoute>
+            <MyQueries></MyQueries>
+          </PrivateRoute>
+        ),
       },
       {
         path: '/AddQueries',
-        element: <AddQueries></AddQueries>,
+        element: (
+          <PrivateRoute>
+            <AddQueries></AddQueries>
+          </PrivateRoute>
+        ),
       },
       {
         path: '/login',
@@ -54,7 +63,11 @@ const router = createBrowserRouter([
       },
       {
         path: '/craft/:id',
-        element: <QueriesDetails></QueriesDetails>,
+        element: (
+          <PrivateRoute>
+            <QueriesDetails></QueriesDetails>
+          </PrivateRoute>
+        ),
       },
       {
         path: '/allQueries',
@@ -62,11 +75,19 @@ const router = createBrowserRouter([
       },
       {
         path: '/myreccomendetion',
-        element: <MyRecommmendation></MyRecommmendation>,
+        element: (
+          <PrivateRoute>
+            <MyRecommmendation></MyRecommmendation>
+          </PrivateRoute>
+        ),
       },
       {
         path: '/Forme',
-        element: <ForME></ForME>,
+        element: (
+          <PrivateRoute>
+            <ForME></ForME>
+          </PrivateRoute>
+        ),
       },
     ],
   },

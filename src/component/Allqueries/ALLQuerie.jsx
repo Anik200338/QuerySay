@@ -17,8 +17,8 @@ const ALLQuerie = ({ Querie }) => {
     email,
   } = Querie;
   return (
-    <div className="card card-compact rounded-none border-2 border-info  h-96 bg-base-100 shadow-2xl">
-      <figure className="h-40">
+    <div className="card card-compact rounded-none border-2 border-info  h-[550px] bg-base-100 shadow-2xl">
+      <figure className="h-20">
         <img src={ProductImage} alt="Shoes" />
       </figure>
       <div className="card-body">
@@ -30,8 +30,8 @@ const ALLQuerie = ({ Querie }) => {
           <span className="font-bold">BrandName:</span>
           {ProductBrand}
         </h1>
-        <h1 className="text-xl font-se ">{BoycottingReasonDetails}</h1>
-        <h1 className="text-lg font-se ">
+        <h1 className="text-sm  ">{BoycottingReasonDetails}</h1>
+        <h1 className="text-lg  ">
           <span className="font-bold">Date&Time:</span>
           {currentDateAndTime}
         </h1>

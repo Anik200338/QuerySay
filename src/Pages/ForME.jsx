@@ -10,7 +10,9 @@ const ForME = () => {
   const [control, setcontrol] = useState(false);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/Forme/${user?.email}`)
+    fetch(`http://localhost:5000/Forme/${user?.email}`, {
+      credentials: 'include',
+    })
       .then(res => res.json())
       .then(data => {
         console.log(data);
@@ -51,14 +53,15 @@ const ForME = () => {
             <th>Recommendation Title</th>
             <th>Recommendedproduct Name</th>
             <th>Date&Time</th>
-            <th>Query Owner Name</th>
-            <th>Delete Recommendation</th>
+            <th>Recommendation Owner Name</th>
+            <th>Details </th>
           </tr>
         </thead>
-        {items.map(Queries => (
+        {items.map((Queries, index) => (
           <ForMeCard
             key={Queries.id}
             Queries={Queries}
+            index={index}
             handleDelete={handleDelete}
           />
         ))}

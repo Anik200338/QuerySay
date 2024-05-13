@@ -22,7 +22,7 @@ const AllMyQueries = ({ Queries, handleDelete }) => {
         <img src={ProductImage} alt="Shoes" />
       </figure>
       <div className="card-body">
-        <h2 className="card-title font-bold">{QueryTItle}</h2>
+        <h2 className="card-title text-sm">{QueryTItle}</h2>
         <h1 className="text-lg font-semibold">
           <span className="font-bold">ProductName:</span> {ProductName}
         </h1>

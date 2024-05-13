@@ -104,7 +104,7 @@ const QueriesDetails = () => {
       <div>
         <div className="hero-content flex-col lg:flex lg:flex-row">
           <div className="text-center lg:text-left">
-            <div className="card lg:h-80 lg:card-side bg-base-100 shadow-xl">
+            <div className="card lg:h-[500px] lg:card-side bg-base-100 shadow-xl">
               <figure className="">
                 <img src={ProductImage} alt="Album" />
               </figure>

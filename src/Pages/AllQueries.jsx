@@ -33,7 +33,7 @@ const AllQueries = () => {
 
   return (
     <div className="mb-20 lg:p-20" data-aos="fade-down-right">
-      <div className="flex mb-10">
+      <div className="flex lg:flex-row flex-col mb-10">
         <form onSubmit={handleSearch}>
           <div className="flex p-1 overflow-hidden w-auto border rounded-lg  focus-within:ring focus-within:ring-opacity-40 focus-within:border-blue-400 focus-within:ring-blue-300">
             <input

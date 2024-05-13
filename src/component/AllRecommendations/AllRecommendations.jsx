@@ -22,14 +22,16 @@ const AllRecommendations = ({ recommended }) => {
           <div className="hero-content flex-col lg:flex-row">
             <img
               src={RecommendedProductImage}
-              className="max-w-sm rounded-lg shadow-2xl"
+              className="w-auto lg:w-64 rounded-lg "
             />
             <div>
               <h1 className="text-xl font-bold">{User.Name}</h1>
               <p className="">{User.email}</p>
               <p className="">{currentDateAndTime}</p>
-              <h1 className="text-3xl font-bold pt-6">{RecommendationTitle}</h1>
-              <h1 className="text-xl font-bold">{RecommendedproductName}</h1>
+              <h1 className="text-lg font-bold pt-2">{RecommendationTitle}</h1>
+              <h1 className="text-lg font-bold">
+                Product Name: {RecommendedproductName}
+              </h1>
               <p className="">{Recommendationreason}</p>
             </div>
           </div>

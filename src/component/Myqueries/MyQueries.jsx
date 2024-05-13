@@ -10,7 +10,9 @@ const MyQueries = () => {
   const [control, setcontrol] = useState(false);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/Query/${user?.email}`)
+    fetch(`http://localhost:5000/Query/${user?.email}`, {
+      credentials: 'include',
+    })
       .then(res => res.json())
       .then(data => {
         // Sort items by timestamp in descending order

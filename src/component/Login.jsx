@@ -26,16 +26,16 @@ const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
 
   const onSubmit = async data => {
-    const result = await signIn(data.email, data.password);
     try {
-      const { data } = await axios.post(
+      const result = await signIn(data.email, data.password);
+      const { data: jwtData } = await axios.post(
         'http://localhost:5000/jwt',
         {
           email: result?.user?.email,
         },
         { withCredentials: true }
       );
-      console.log(data);
+      console.log(jwtData);
       if (result.user) {
         toast.success('Login successful!');
         navigate(from);
@@ -43,7 +43,11 @@ const Login = () => {
         toast.error('Social login failed. Please try again.'); // Display error message
       }
     } catch (error) {
-      toast.error('Invalid email or password. Please try again.'); // Display error message
+      if (error.message === 'Invalid password') {
+        toast.error('Invalid password. Please try again.'); // Display specific error message for invalid password
+      } else {
+        toast.error('Invalid email or password. Please try again.'); // Display generic error message for other errors
+      }
     }
   };
 

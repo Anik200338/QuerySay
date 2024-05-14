@@ -50,24 +50,26 @@ const AllQueries = () => {
             </button>
           </div>
         </form>
-        <button
-          onClick={() => setGridColumnsCount(1)}
-          className="px-4 py-2 ml-2 bg-gray-700 text-gray-100 rounded-md hover:bg-gray-600 focus:bg-gray-600 focus:outline-none"
-        >
-          1 Column Grid
-        </button>
-        <button
-          onClick={() => setGridColumnsCount(2)}
-          className="px-4 py-2 ml-2 bg-gray-700 text-gray-100 rounded-md hover:bg-gray-600 focus:bg-gray-600 focus:outline-none"
-        >
-          2 Column Grid
-        </button>
-        <button
-          onClick={() => setGridColumnsCount(3)}
-          className="px-4 py-2 ml-2 bg-gray-700 text-gray-100 rounded-md hover:bg-gray-600 focus:bg-gray-600 focus:outline-none"
-        >
-          3 Column Grid
-        </button>
+        <div className=" ml-5 mr-5 flex flex-col mt-5 lg:mt-0 lg:flex-row  gap-5">
+          <button
+            onClick={() => setGridColumnsCount(1)}
+            className="btn btn-active btn-primary"
+          >
+            1 Column Grid
+          </button>
+          <button
+            onClick={() => setGridColumnsCount(2)}
+            className="btn btn-active btn-primary"
+          >
+            2 Column Grid
+          </button>
+          <button
+            onClick={() => setGridColumnsCount(3)}
+            className="btn btn-active btn-primary"
+          >
+            3 Column Grid
+          </button>
+        </div>
       </div>
 
       {loading ? ( // Render loader if loading is true

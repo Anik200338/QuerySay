@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../Provider/AuthProvider';
 import Swal from 'sweetalert2';
 import MyRecommendedCard from '../component/MyRecommendedCard/MyRecommendedCard';
+import { Helmet } from 'react-helmet-async';
 
 const MyRecommmendation = () => {
   const { user } = useContext(AuthContext);
@@ -54,6 +55,9 @@ const MyRecommmendation = () => {
 
   return (
     <div className="overflow-x-auto mb-10">
+      <Helmet>
+        <title>QuerySay | My recomm..</title>
+      </Helmet>
       <table className="table">
         {/* head */}
         <thead>

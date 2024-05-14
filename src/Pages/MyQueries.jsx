@@ -3,11 +3,15 @@ import { Link } from 'react-router-dom';
 import Add from '../../public/Add.json';
 import MyCardQueries from '../component/Myqueries/MyQueries';
 import Lottie from 'lottie-react';
+import { Helmet } from 'react-helmet-async';
 
 const MyQueries = () => {
   return (
     <>
       <div className="hero  bg-gradient-to-r from-[#00C9FF] to-[#92FE9D] h-96 lg:h-72 rounded-lg p-2">
+        <Helmet>
+          <title>QuerySay | MY Queries</title>
+        </Helmet>
         <div className="hero-content text-center">
           <div className="max-w-md">
             <h1 className="text-2xl font-bold">

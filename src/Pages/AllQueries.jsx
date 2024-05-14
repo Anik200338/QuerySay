@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import ALLQuerie from '../component/Allqueries/ALLQuerie';
+import { Helmet } from 'react-helmet-async';
 
 const AllQueries = () => {
   const [search, setSearch] = useState('');
@@ -35,6 +36,9 @@ const AllQueries = () => {
 
   return (
     <div className="mb-20 lg:p-20" data-aos="fade-down-right">
+      <Helmet>
+        <title>QuerySay | Queries</title>
+      </Helmet>
       <div className="flex lg:flex-row flex-col mb-10">
         <form onSubmit={handleSearch}>
           <div className="flex p-1 overflow-hidden w-auto border rounded-lg  focus-within:ring focus-within:ring-opacity-40 focus-within:border-blue-400 focus-within:ring-blue-300">

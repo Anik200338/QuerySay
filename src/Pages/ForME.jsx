@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import Swal from 'sweetalert2';
 import { AuthContext } from '../Provider/AuthProvider';
 import ForMeCard from '../component/ForMeReco/ForMeCard';
+import { Helmet } from 'react-helmet-async';
 
 const ForME = () => {
   const { user } = useContext(AuthContext);
@@ -53,6 +54,9 @@ const ForME = () => {
   };
   return (
     <div className="overflow-x-auto mb-10">
+      <Helmet>
+        <title>QuerySay | For ME</title>
+      </Helmet>
       <table className="table">
         {/* head */}
         <thead>

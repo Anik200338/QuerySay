@@ -31,7 +31,7 @@ const AddQueries = () => {
       currentDateAndTime,
       recommendationCount,
     };
-    console.log(newQuery);
+    newQuery;
     // send data to the server
     fetch('https://assignment-11-server-pink-eight.vercel.app/AddQuery', {
       method: 'POST',
@@ -42,7 +42,7 @@ const AddQueries = () => {
     })
       .then(res => res.json())
       .then(data => {
-        console.log(data);
+        data;
         if (data.insertedId) {
           Swal.fire({
             title: 'success!',

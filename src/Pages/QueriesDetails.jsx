@@ -6,7 +6,7 @@ import AllRecommendations from '../component/AllRecommendations/AllRecommendatio
 
 const QueriesDetails = () => {
   const { id } = useParams();
-  console.log(id);
+  id;
   const [craft, setCraft] = useState({});
   const { user } = useContext(AuthContext);
 
@@ -19,7 +19,7 @@ const QueriesDetails = () => {
       .then(data => {
         setCraft(data);
         // Set loading to false when data is fetched
-        console.log(data);
+        data;
       });
   }, [id]);
   const {
@@ -36,7 +36,7 @@ const QueriesDetails = () => {
   } = craft;
 
   const [item, setItem] = useState([]);
-  console.log(item);
+  item;
   useEffect(() => {
     fetch(
       `https://assignment-11-server-pink-eight.vercel.app/subcategory/${id}`
@@ -44,7 +44,7 @@ const QueriesDetails = () => {
       .then(res => res.json())
       .then(data => {
         setItem(data);
-        console.log(data);
+        data;
       });
   }, [id]);
 
@@ -75,7 +75,7 @@ const QueriesDetails = () => {
       },
       currentDateAndTime,
     };
-    console.log(newRecommended);
+    newRecommended;
     // send data to the server
     fetch('https://assignment-11-server-pink-eight.vercel.app/recommended', {
       method: 'POST',
@@ -86,7 +86,7 @@ const QueriesDetails = () => {
     })
       .then(res => res.json())
       .then(data => {
-        console.log(data);
+        data;
         if (data.insertedId) {
           Swal.fire({
             title: 'success!',

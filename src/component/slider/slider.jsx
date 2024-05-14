@@ -12,7 +12,7 @@ import { useLoaderData } from 'react-router-dom';
 
 const Slider = () => {
   const { fakeData } = useLoaderData(); // Destructure 'estates' from the data fetched
-  console.log(fakeData);
+  fakeData;
   return (
     <div data-aos="flip-left">
       <Swiper

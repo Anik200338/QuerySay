@@ -35,7 +35,7 @@ const Login = () => {
         },
         { withCredentials: true }
       );
-      console.log(jwtData);
+      jwtData;
       if (result.user) {
         toast.success('Login successful!');
         navigate(from);

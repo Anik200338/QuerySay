@@ -4,7 +4,7 @@ import Swal from 'sweetalert2';
 
 const Update = () => {
   const { id } = useParams();
-  console.log(id);
+  id;
   const [craft, setCraft] = useState({});
 
   useEffect(() => {
@@ -14,7 +14,7 @@ const Update = () => {
       .then(res => res.json())
       .then(data => {
         setCraft(data);
-        console.log(data);
+        data;
       });
   }, [id]);
   // ?dsad
@@ -44,7 +44,7 @@ const Update = () => {
       .then(data => {
         setCraft(data);
         // Set loading to false when data is fetched
-        console.log(data);
+        data;
         if (data.modifiedCount > 0) {
           Swal.fire({
             title: 'Success!',

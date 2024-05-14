@@ -21,7 +21,7 @@ const githubProvider = new GithubAuthProvider();
 const auth = getAuth(app);
 const AuthProviders = ({ children }) => {
   const [user, setUser] = useState(null);
-  console.log(user);
+  user;
 
   const [loading, setLoading] = useState(true);
 
@@ -73,7 +73,7 @@ const AuthProviders = ({ children }) => {
         withCredentials: true,
       }
     );
-    console.log(data);
+    data;
     setUser(null);
     return signOut(auth);
   };

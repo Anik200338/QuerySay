@@ -25,7 +25,7 @@ const SocialLogin = () => {
         },
         { withCredentials: true }
       );
-      console.log(data);
+      data;
       if (result.user) {
         toast.success('Login successful!');
         navigate(from);

@@ -20,7 +20,7 @@ const MyRecommmendation = () => {
       )
         .then(res => res.json())
         .then(data => {
-          console.log(data);
+          data;
           setItems(data);
         });
   }, [user, control]);

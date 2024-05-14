@@ -62,12 +62,6 @@ const AllQueries = () => {
             1 Column Grid
           </button>
           <button
-            onClick={() => setGridColumnsCount(2)}
-            className="btn btn-active btn-primary"
-          >
-            2 Column Grid
-          </button>
-          <button
             onClick={() => setGridColumnsCount(3)}
             className="btn btn-active btn-primary"
           >

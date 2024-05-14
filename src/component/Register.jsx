@@ -58,7 +58,7 @@ const Register = () => {
       );
 
       // Log JWT data
-      console.log(jwtResponse.data);
+      jwtResponse.data;
 
       // Update user profile
       await updateUserProfile(data.fullname, data.Photo);

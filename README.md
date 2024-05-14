@@ -4,7 +4,7 @@ Welcome to QuerySay, your alternative product information system.
 
 ## Visit the Live Site
 
-Visit the live site: [QuerySay](https://www.example.com)
+Visit the live site: [QuerySay](https://assignment-11-f6ebc.web.app/)
 
 ## Features
 

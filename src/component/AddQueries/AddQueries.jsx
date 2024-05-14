@@ -33,7 +33,7 @@ const AddQueries = () => {
     };
     console.log(newQuery);
     // send data to the server
-    fetch('http://localhost:5000/AddQuery', {
+    fetch('https://assignment-11-server-pink-eight.vercel.app/AddQuery', {
       method: 'POST',
       headers: {
         'content-type': 'application/json',

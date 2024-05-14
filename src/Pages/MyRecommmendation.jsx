@@ -10,14 +10,18 @@ const MyRecommmendation = () => {
   const [control, setcontrol] = useState(false);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/myRecommended/${user?.email}`, {
-      credentials: 'include',
-    })
-      .then(res => res.json())
-      .then(data => {
-        console.log(data);
-        setItems(data);
-      });
+    if (user?.email)
+      fetch(
+        `https://assignment-11-server-pink-eight.vercel.app/myRecommended/${user?.email}`,
+        {
+          credentials: 'include',
+        }
+      )
+        .then(res => res.json())
+        .then(data => {
+          console.log(data);
+          setItems(data);
+        });
   }, [user, control]);
 
   const handleDelete = (id, id2) => {
@@ -31,9 +35,12 @@ const MyRecommmendation = () => {
       confirmButtonText: 'Yes, delete it!',
     }).then(result => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/myDelete?id=${id}&id2=${id2}`, {
-          method: 'DELETE',
-        })
+        fetch(
+          `https://assignment-11-server-pink-eight.vercel.app/myDelete?id=${id}&id2=${id2}`,
+          {
+            method: 'DELETE',
+          }
+        )
           .then(res => res.json())
           .then(data => {
             if (data.deletedCount > 0) {

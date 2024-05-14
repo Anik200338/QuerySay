@@ -8,7 +8,9 @@ const Update = () => {
   const [craft, setCraft] = useState({});
 
   useEffect(() => {
-    fetch(`http://localhost:5000/UpdateDetails/${id}`)
+    fetch(
+      `https://assignment-11-server-pink-eight.vercel.app/UpdateDetails/${id}`
+    )
       .then(res => res.json())
       .then(data => {
         setCraft(data);
@@ -31,7 +33,7 @@ const Update = () => {
       QueryTItle,
       BoycottingReasonDetails,
     };
-    fetch(`http://localhost:5000/update/${id}`, {
+    fetch(`https://assignment-11-server-pink-eight.vercel.app/update/${id}`, {
       method: 'PUT',
       headers: {
         'content-type': 'application/json',

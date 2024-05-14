@@ -19,7 +19,7 @@ const SocialLogin = () => {
     try {
       const result = await socialProvider();
       const { data } = await axios.post(
-        'http://localhost:5000/jwt',
+        'https://assignment-11-server-pink-eight.vercel.app/jwt',
         {
           email: result?.user?.email,
         },

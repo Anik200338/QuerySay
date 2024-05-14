@@ -17,7 +17,7 @@ const RecentCard = ({ Craft }) => {
     email,
   } = Craft;
   return (
-    <div className="card card-compact rounded-none border-2 border-info  h-[500px] bg-base-100 shadow-2xl">
+    <div className="card card-compact rounded-none border-2 border-info  h-[500px] bg-base-100 shadow-2xl ">
       <figure className="h-24">
         <img src={ProductImage} alt="Shoes" />
       </figure>
@@ -35,7 +35,7 @@ const RecentCard = ({ Craft }) => {
           <span className="font-bold">Date&Time:</span>
           {currentDateAndTime}
         </h1>
-        <div className="flex items-center gap-5 flex-auto mt-5">
+        <div className="flex items-center gap-5  mt-5 absolute bottom-3 ">
           <div className="avatar  gap-5 items-center ">
             <div className="w-10 rounded-full ">
               <img src={userimage} />

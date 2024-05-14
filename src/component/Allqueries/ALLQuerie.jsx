@@ -35,21 +35,23 @@ const ALLQuerie = ({ Querie }) => {
           <span className="font-bold">Date&Time:</span>
           {currentDateAndTime}
         </h1>
-        <div className="flex items-center gap-5">
-          <div className="avatar  gap-5 items-center ">
-            <div className="w-10 rounded-full ">
-              <img src={userimage} />
+        <div className="absolute bottom-2 ">
+          <div className="flex items-center gap-5 mb-2">
+            <div className="avatar  gap-5 items-center ">
+              <div className="w-10 rounded-full ">
+                <img src={userimage} />
+              </div>
+            </div>
+            <div className="">
+              <h2 className="font-bold">{Name}</h2>
+              <h2>{email}</h2>
             </div>
           </div>
-          <div className="">
-            <h2 className="font-bold">{Name}</h2>
-            <h2>{email}</h2>
+          <div className="card-actions justify-between">
+            <Link to={`/craft/${_id}`}>
+              <button className="btn btn-accent">Recommend</button>
+            </Link>
           </div>
-        </div>
-        <div className="card-actions justify-between">
-          <Link to={`/craft/${_id}`}>
-            <button className="btn btn-accent">Recommend</button>
-          </Link>
         </div>
       </div>
     </div>

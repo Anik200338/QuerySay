@@ -10,14 +10,18 @@ const ForME = () => {
   const [control, setcontrol] = useState(false);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/Forme/${user?.email}`, {
-      credentials: 'include',
-    })
-      .then(res => res.json())
-      .then(data => {
-        console.log(data);
-        setItems(data);
-      });
+    if (user?.email)
+      fetch(
+        `https://assignment-11-server-pink-eight.vercel.app/Forme/${user?.email}`,
+        {
+          credentials: 'include',
+        }
+      )
+        .then(res => res.json())
+        .then(data => {
+          console.log(data);
+          setItems(data);
+        });
   }, [user, control]);
 
   const handleDelete = id => {
@@ -31,9 +35,12 @@ const ForME = () => {
       confirmButtonText: 'Yes, delete it!',
     }).then(result => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/delete/${id}`, {
-          method: 'DELETE',
-        })
+        fetch(
+          `https://assignment-11-server-pink-eight.vercel.app/delete/${id}`,
+          {
+            method: 'DELETE',
+          }
+        )
           .then(res => res.json())
           .then(data => {
             if (data.deletedCount > 0) {

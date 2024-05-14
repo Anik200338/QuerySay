@@ -9,7 +9,9 @@ const AllQueries = () => {
 
   useEffect(() => {
     setLoading(true); // Set loading to true when starting to fetch data
-    fetch(`http://localhost:5000/AddQuery?search=${search}`)
+    fetch(
+      `https://assignment-11-server-pink-eight.vercel.app/AddQuery?search=${search}`
+    )
       .then(res => res.json())
       .then(data => {
         setItems(data);

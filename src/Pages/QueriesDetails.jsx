@@ -12,7 +12,9 @@ const QueriesDetails = () => {
 
   useEffect(() => {
     // Set loading to true when starting to fetch data
-    fetch(`http://localhost:5000/QueriesDetails/${id}`)
+    fetch(
+      `https://assignment-11-server-pink-eight.vercel.app/QueriesDetails/${id}`
+    )
       .then(res => res.json())
       .then(data => {
         setCraft(data);
@@ -36,7 +38,9 @@ const QueriesDetails = () => {
   const [item, setItem] = useState([]);
   console.log(item);
   useEffect(() => {
-    fetch(`http://localhost:5000/subcategory/${id}`)
+    fetch(
+      `https://assignment-11-server-pink-eight.vercel.app/subcategory/${id}`
+    )
       .then(res => res.json())
       .then(data => {
         setItem(data);
@@ -73,7 +77,7 @@ const QueriesDetails = () => {
     };
     console.log(newRecommended);
     // send data to the server
-    fetch('http://localhost:5000/recommended', {
+    fetch('https://assignment-11-server-pink-eight.vercel.app/recommended', {
       method: 'POST',
       headers: {
         'content-type': 'application/json',

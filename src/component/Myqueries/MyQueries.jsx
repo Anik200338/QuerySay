@@ -13,9 +13,12 @@ const MyQueries = () => {
 
   useEffect(() => {
     if (user?.email)
-      fetch(`http://localhost:5000/Query/${user?.email}`, {
-        credentials: 'include',
-      })
+      fetch(
+        `https://assignment-11-server-pink-eight.vercel.app/Query/${user?.email}`,
+        {
+          credentials: 'include',
+        }
+      )
         .then(res => res.json())
         .then(data => {
           // Sort items by timestamp in descending order
@@ -42,9 +45,12 @@ const MyQueries = () => {
       confirmButtonText: 'Yes, delete it!',
     }).then(result => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/delete/${id}`, {
-          method: 'DELETE',
-        })
+        fetch(
+          `https://assignment-11-server-pink-eight.vercel.app/delete/${id}`,
+          {
+            method: 'DELETE',
+          }
+        )
           .then(res => res.json())
           .then(data => {
             if (data.deletedCount > 0) {

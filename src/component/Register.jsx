@@ -50,7 +50,7 @@ const Register = () => {
 
       // Send data to server and get JWT
       const jwtResponse = await axios.post(
-        'http://localhost:5000/jwt',
+        'https://assignment-11-server-pink-eight.vercel.app/jwt',
         {
           email: result?.user?.email,
         },

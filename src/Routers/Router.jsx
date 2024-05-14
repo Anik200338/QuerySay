@@ -27,7 +27,9 @@ const router = createBrowserRouter([
           const fakeDataResponse = await fetch('../../fakedata.json');
           const fakeData = await fakeDataResponse.json();
 
-          const LatestCard = await fetch('http://localhost:5000/AddRecent');
+          const LatestCard = await fetch(
+            'https://assignment-11-server-pink-eight.vercel.app/AddRecent'
+          );
           const Recent = await LatestCard.json();
 
           return { fakeData, Recent };

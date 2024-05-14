@@ -29,7 +29,7 @@ const Login = () => {
     try {
       const result = await signIn(data.email, data.password);
       const { data: jwtData } = await axios.post(
-        'http://localhost:5000/jwt',
+        'https://assignment-11-server-pink-eight.vercel.app/jwt',
         {
           email: result?.user?.email,
         },

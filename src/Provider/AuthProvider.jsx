@@ -66,9 +66,13 @@ const AuthProviders = ({ children }) => {
   };
 
   const logout = async () => {
-    const { data } = await axios('http://localhost:5000/logout', {
-      withCredentials: true,
-    });
+    const { data } = await axios.post(
+      'https://assignment-11-server-pink-eight.vercel.app/logout',
+      {},
+      {
+        withCredentials: true,
+      }
+    );
     console.log(data);
     setUser(null);
     return signOut(auth);
